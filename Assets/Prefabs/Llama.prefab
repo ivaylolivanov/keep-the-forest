@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1393156112252416344}
   - component: {fileID: 1393156112252416351}
   - component: {fileID: 1393156112252416350}
+  - component: {fileID: 1201931906}
   m_Layer: 0
   m_Name: Llama
   m_TagString: Untagged
@@ -123,6 +124,19 @@ MonoBehaviour:
   attackRange: 11
   projectile: {fileID: 4061932431155605695, guid: 06df87cad672b1f4b843bb51d59c8d78,
     type: 3}
+--- !u!114 &1201931906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393156112252416346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e94bdb1622cd748892fb4d4b9c93610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialHitPoints: 100
 --- !u!1 &1393156112948627032
 GameObject:
   m_ObjectHideFlags: 0
