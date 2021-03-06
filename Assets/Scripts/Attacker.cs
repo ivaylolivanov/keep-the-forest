@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attacker : MonoBehaviour {
+public class Attacker : BoardPiece {
     [SerializeField] LayerMask targetLayer;
     [SerializeField] float attackRange;
     [SerializeField] int damage;
 
     float currentWalkSpeed;
+    Vector2 movingDirection;
     Animator animator;
 
     Health targetHealth;
 
     void Start() {
         animator = GetComponent<Animator>();
+        movingDirection = Vector2.left;
     }
 
     void Update() {
-        transform.Translate(Vector2.left * currentWalkSpeed * Time.deltaTime);
+        transform.Translate(
+            movingDirection
+            * currentWalkSpeed
+            * Time.deltaTime
+        );
 
         RaycastHit2D targetInRange = Physics2D.Raycast(
             transform.position,
@@ -37,7 +43,11 @@ public class Attacker : MonoBehaviour {
         }
     }
 
-    public void SetWalkSpeed(float speed) {
+    public override void SetMovingDirectionToRunning() {
+        movingDirection = Vector2.right;
+    }
+
+    public override void SetWalkSpeed(float speed) {
         currentWalkSpeed = speed;
     }
 
