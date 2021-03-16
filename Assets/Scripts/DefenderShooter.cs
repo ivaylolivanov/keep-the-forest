@@ -5,33 +5,17 @@ using UnityEngine;
 public class DefenderShooter : BoardPiece {
 
     [SerializeField] Transform attackPoint;
-    [SerializeField] int hitPoints;
-    [SerializeField] LayerMask attackersLayer;
-    [SerializeField] float attackRange;
     [SerializeField] GameObject projectile;
 
-    float currentWalkSpeed = 0f;
-    Vector2 movingDirection;
-    Animator animator;
+    RaycastHit2D targetInRange;
 
     void Start() {
-        animator = GetComponent<Animator>();
-        movingDirection = Vector2.left;
+        base.Start();
+        currentWalkSpeed = 0f;
     }
 
     void Update() {
-        transform.Translate(
-            movingDirection
-            * currentWalkSpeed
-            * Time.deltaTime
-        );
-
-        RaycastHit2D targetInRange = Physics2D.Raycast(
-            attackPoint.position,
-            Vector2.right,
-            attackRange,
-            attackersLayer
-        );
+        base.Update();
 
         if(targetInRange) {
             animator.SetBool("Attack", true);
@@ -41,12 +25,17 @@ public class DefenderShooter : BoardPiece {
         }
     }
 
-    public override void SetMovingDirectionToRunning() {
-        movingDirection = Vector2.left;
+    void FixedUpdate() {
+        targetInRange = Physics2D.Raycast(
+            attackPoint.position,
+            Vector2.right,
+            attackRange,
+            targetLayer
+        );
     }
 
-    public override void SetWalkSpeed(float speed) {
-        currentWalkSpeed = speed;
+    public override void SetMovingDirectionToRunning() {
+        movingDirection = Vector2.left;
     }
 
     public void Attack() {

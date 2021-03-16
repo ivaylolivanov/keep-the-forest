@@ -3,27 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Attacker : BoardPiece {
-    [SerializeField] LayerMask targetLayer;
-    [SerializeField] float attackRange;
     [SerializeField] int damage;
-
-    float currentWalkSpeed;
-    Vector2 movingDirection;
-    Animator animator;
 
     Health targetHealth;
 
     void Start() {
-        animator = GetComponent<Animator>();
-        movingDirection = Vector2.left;
+        base.Start();
+        cost = 0;
     }
 
     void Update() {
-        transform.Translate(
-            movingDirection
-            * currentWalkSpeed
-            * Time.deltaTime
-        );
+        base.Update();
 
         RaycastHit2D targetInRange = Physics2D.Raycast(
             transform.position,
@@ -33,6 +23,7 @@ public class Attacker : BoardPiece {
         );
 
         if (targetInRange) {
+            Debug.DrawRay(transform.position, Vector2.left * attackRange, Color.red);
             currentWalkSpeed = 0;
             targetHealth = targetInRange.transform.GetComponent<Health>();
             animator.SetBool("InAttackRange", true);
@@ -43,17 +34,13 @@ public class Attacker : BoardPiece {
         }
     }
 
-    public override void SetMovingDirectionToRunning() {
-        movingDirection = Vector2.right;
-    }
-
-    public override void SetWalkSpeed(float speed) {
-        currentWalkSpeed = speed;
-    }
-
     public void Attack() {
         if (targetHealth) {
             targetHealth.TakeDamage(damage);
         }
+    }
+
+    public bool HasTarget() {
+        return (targetHealth);
     }
 }

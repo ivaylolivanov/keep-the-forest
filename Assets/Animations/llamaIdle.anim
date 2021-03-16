@@ -20,18 +20,19 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 16332973837565794, guid: 556d0258eb813272aa0954414a25a309, type: 3}
-    - time: 0.41666666
-      value: {fileID: -5597679435480945894, guid: 556d0258eb813272aa0954414a25a309,
+      value: {fileID: 6752691136928641595, guid: 556d0258eb813272aa0954414a25a309,
         type: 3}
-    - time: 0.8333333
-      value: {fileID: 2567067749844284690, guid: 556d0258eb813272aa0954414a25a309,
+    - time: 0.46666667
+      value: {fileID: 2816459655836384822, guid: 556d0258eb813272aa0954414a25a309,
         type: 3}
-    - time: 1.25
-      value: {fileID: 8110748199487980514, guid: 556d0258eb813272aa0954414a25a309,
+    - time: 1.0333333
+      value: {fileID: -8661224887005322561, guid: 556d0258eb813272aa0954414a25a309,
+        type: 3}
+    - time: 1.5
+      value: {fileID: -2446912640957216203, guid: 556d0258eb813272aa0954414a25a309,
         type: 3}
     attribute: m_Sprite
-    path: 
+    path: LlamaBody
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -42,23 +43,23 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 1053569009
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 16332973837565794, guid: 556d0258eb813272aa0954414a25a309, type: 3}
-    - {fileID: -5597679435480945894, guid: 556d0258eb813272aa0954414a25a309, type: 3}
-    - {fileID: 2567067749844284690, guid: 556d0258eb813272aa0954414a25a309, type: 3}
-    - {fileID: 8110748199487980514, guid: 556d0258eb813272aa0954414a25a309, type: 3}
+    - {fileID: 6752691136928641595, guid: 556d0258eb813272aa0954414a25a309, type: 3}
+    - {fileID: 2816459655836384822, guid: 556d0258eb813272aa0954414a25a309, type: 3}
+    - {fileID: -8661224887005322561, guid: 556d0258eb813272aa0954414a25a309, type: 3}
+    - {fileID: -2446912640957216203, guid: 556d0258eb813272aa0954414a25a309, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.2666667
+    m_StopTime: 1.5166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
