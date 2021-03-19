@@ -143,8 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e94bdb1622cd748892fb4d4b9c93610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHitPoints: 400
+  initialHitPoints: 500
   instantDestroy: 1
+  destroyDelay: 5
+  isAttacker: 0
 --- !u!114 &4322129095225662206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3898fa73935d8970fb9e12cfeacbd574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 50
+  cost: 40
   targetLayer:
     serializedVersion: 2
     m_Bits: 256

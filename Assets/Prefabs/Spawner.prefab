@@ -48,3 +48,6 @@ MonoBehaviour:
   attackers:
   - {fileID: 1447311827, guid: 096927220112c1e6d8d0bd52d2989b7a, type: 3}
   - {fileID: 2270582617864370716, guid: 729664b97ad1797d2adabd0fe6206b2a, type: 3}
+  lanesToSpawn: 6
+  preparationTime: 35
+  difficultyMultiplier: 3

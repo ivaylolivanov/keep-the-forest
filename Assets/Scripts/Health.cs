@@ -7,6 +7,7 @@ public class Health : MonoBehaviour {
     [SerializeField] int initialHitPoints;
     [SerializeField] bool instantDestroy = false;
     [SerializeField] float destroyDelay = 5f;
+    [SerializeField] bool isAttacker = false;
 
     int currentHitPoints;
 
@@ -36,6 +37,10 @@ public class Health : MonoBehaviour {
         }
     }
 
+    public void AddHealth(int health) {
+        currentHitPoints += health;
+    }
+
     public void TakeDamage(int dmg) {
         currentHitPoints -= dmg;
         currentHitPoints = Mathf.Clamp(currentHitPoints, 0, initialHitPoints);
@@ -50,6 +55,7 @@ public class Health : MonoBehaviour {
 
         BoardPiece boardPiece = GetComponent<BoardPiece>();
         if(boardPiece) {
+            boardPiece.SetCanAttack(false);
             Collider2D coll = boardPiece.GetComponent<Collider2D>();
             boardPiece.SetMovingDirectionToRunning();
             animator.SetBool("Defeated", true);
@@ -63,7 +69,7 @@ public class Health : MonoBehaviour {
     }
 
     void OnDestroy() {
-        if (levelController == null) { return; }
+        if (levelController == null || ! isAttacker) { return; }
         levelController.AttackerDefetead();
     }
 

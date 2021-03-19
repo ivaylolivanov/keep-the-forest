@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DefenderShooter : BoardPiece {
-
     [SerializeField] Transform attackPoint;
     [SerializeField] GameObject projectile;
 
@@ -39,6 +38,11 @@ public class DefenderShooter : BoardPiece {
     }
 
     public void Attack() {
-        Instantiate(projectile, attackPoint.position, Quaternion.identity);
+        GameObject newProjectile = Instantiate(
+            projectile,
+            attackPoint.position,
+            Quaternion.identity
+        );
+        newProjectile.transform.SetParent(transform);
     }
 }

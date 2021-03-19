@@ -22,8 +22,7 @@ public class Attacker : BoardPiece {
             targetLayer
         );
 
-        if (targetInRange) {
-            Debug.DrawRay(transform.position, Vector2.left * attackRange, Color.red);
+        if (targetInRange && canAttack) {
             currentWalkSpeed = 0;
             targetHealth = targetInRange.transform.GetComponent<Health>();
             animator.SetBool("InAttackRange", true);

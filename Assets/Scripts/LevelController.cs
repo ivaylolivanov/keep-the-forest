@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour {
     private GameTimer levelTimer;
 
     private int currentlyAliveAttackers;
+    private MusicPlayer musicPlayer;
 
     void Start() {
         currentlyAliveAttackers = 0;
@@ -21,6 +22,10 @@ public class LevelController : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         levelLoader = FindObjectOfType<LevelLoader>();
         levelTimer = FindObjectOfType<GameTimer>();
+        musicPlayer = FindObjectOfType<MusicPlayer>();
+        if(musicPlayer) {
+            musicPlayer.Resume();
+        }
     }
 
     private IEnumerator CompleteCurrentLevel() {
@@ -29,7 +34,13 @@ public class LevelController : MonoBehaviour {
         }
 
         audioSource.Play();
+        if (musicPlayer) {
+            musicPlayer.Pause();
+        }
         yield return new WaitForSeconds(nextLevelLoadDelay);
+        if (musicPlayer) {
+            musicPlayer.Resume();
+        }
         levelLoader.LoadNextScene();
     }
 
@@ -48,7 +59,7 @@ public class LevelController : MonoBehaviour {
         --currentlyAliveAttackers;
         if(
             levelTimer.HasFinished()
-            && currentlyAliveAttackers == 0
+            && currentlyAliveAttackers <= 0
         ) {
             StartCoroutine(CompleteCurrentLevel());
         }

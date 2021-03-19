@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DefenderSpawner : MonoBehaviour {
+    [SerializeField] List<GameObject> manuallyPlacedDefenders;
+
     List<Vector2> takenPositions;
 
     BoardPiece defender;
@@ -10,11 +12,16 @@ public class DefenderSpawner : MonoBehaviour {
     ResourcesDisplay resourcesDisplay;
     Camera mainCamera;
 
+    GameObject defendersParent;
+
     void Start() {
         mainCamera = Camera.main;
         resourcesDisplay = FindObjectOfType<ResourcesDisplay>();
 
         takenPositions = new List<Vector2>();
+        foreach(GameObject defenderObject in manuallyPlacedDefenders) {
+            takenPositions.Add(SnapToGrid(defenderObject.transform.position));
+        }
     }
 
     void OnMouseDown() {
@@ -46,6 +53,8 @@ public class DefenderSpawner : MonoBehaviour {
                     spawnPosition,
                     Quaternion.identity
                 ) as BoardPiece;
+
+                newDefender.transform.SetParent(transform);
 
                 takenPositions.Add(spawnPosition);
             }

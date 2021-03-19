@@ -8,6 +8,7 @@ public class Sapling : BoardPiece {
     [SerializeField] float growPeriod = 60f;
     [SerializeField] List<Resource> resources;
     [SerializeField] List<Sprite> grownStates;
+    [SerializeField] int improvementValue = 2;
 
     ResourcesDisplay resourcesDisplay;
     SpriteRenderer spriteRenderer;
@@ -51,8 +52,8 @@ public class Sapling : BoardPiece {
 
         if(Time.time > nextGrowTime && currentGrowState < grownStates.Count) {
             spriteRenderer.sprite = grownStates[currentGrowState++];
-            ++resources2give;
-            resourcesSpawnPeriod -= 2;
+            resources2give += improvementValue;
+            resourcesSpawnPeriod -= improvementValue;
             nextGrowTime = Time.time + growPeriod;
         }
     }

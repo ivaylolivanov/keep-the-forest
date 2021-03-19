@@ -92,14 +92,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6037d441842f8aaabd642ea8d6dbbbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 10
+  cost: 30
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
   attackRange: 0
-  initialResource2give: 10
-  initialResourcesSpawnPeriod: 15
-  growPeriod: 30
+  initialResource2give: 25
+  initialResourcesSpawnPeriod: 14
+  growPeriod: 45
   resources:
   - {fileID: -2370198327818642250, guid: b48f59237a5ea73b696457e70766e8ee, type: 3}
   grownStates:
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHitPoints: 45
   instantDestroy: 1
+  destroyDelay: 5
 --- !u!1 &1806220293125085115
 GameObject:
   m_ObjectHideFlags: 0

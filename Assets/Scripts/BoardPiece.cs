@@ -12,6 +12,7 @@ public class BoardPiece : MonoBehaviour {
     protected float currentWalkSpeed = 0f;
     protected Vector2 movingDirection;
     protected Animator animator;
+    protected bool canAttack = true;
 
     public void Start () {
         animator = GetComponent<Animator>();
@@ -28,6 +29,10 @@ public class BoardPiece : MonoBehaviour {
             * currentWalkSpeed * currentWalkSpeedSlow
             * Time.deltaTime
         );
+    }
+
+    public void SetCanAttack(bool canAttack) {
+        this.canAttack = canAttack;
     }
 
     public int GetCost() {

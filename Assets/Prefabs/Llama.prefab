@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb9e9c2f4d27904da6acc1021cededb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
+  cost: 50
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -112,8 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e94bdb1622cd748892fb4d4b9c93610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHitPoints: 150
+  initialHitPoints: 100
   instantDestroy: 0
+  destroyDelay: 5
 --- !u!1 &2574109328356517728
 GameObject:
   m_ObjectHideFlags: 0
