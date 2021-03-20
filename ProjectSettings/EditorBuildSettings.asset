@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level9.unity
     guid: f7a193ecec7c3cc79860069901a36133
   - enabled: 1
+    path: Assets/Scenes/EndGameScreen.unity
+    guid: 0e067e2058b4a6cc3b80a52a8f066655
+  - enabled: 1
     path: Assets/Scenes/OptionsScreen.unity
     guid: 21dd77d54df293803b54331fde6aa1db
   - enabled: 0
